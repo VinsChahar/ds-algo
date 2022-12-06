@@ -4,7 +4,7 @@ Array.prototype.myFilter = function (calback) {
 
     for (let i = 0; i < this.length; i++) {
         const element = this[i];
-        calback(element) ? newArray.push(this[i]) : '';
+        calback(element, i, this) ? newArray.push(this[i]) : '';
     }
 
     return newArray;
@@ -15,8 +15,8 @@ Array.prototype.myFilter = function (calback) {
 Array.prototype.myFilterForeach = function (calback) {
     const newArray = [];
 
-    this.forEach(v => {
-        calback(v) ? newArray.push(v) : '';
+    this.forEach((v, i, this) => {
+        calback(v, i, this) ? newArray.push(v) : '';
     });
 
     return newArray;
